@@ -49,16 +49,31 @@ class GreeterTest {
   @Test
   void greetReturnsGoodMorningWhenTime1800to2200() {
     var greeter = new Greeter();
-    LocalTime morning = LocalTime.of(20, 0);
+    LocalTime evening = LocalTime.of(20, 0);
     String name = "John";
-    assertEquals("Good evening John", greeter.greet(name, morning));
+    assertEquals("Good evening John", greeter.greet(name, evening));
   }
 
   @Test
   void greetDoesNotReturnGoodMorningWhenTimeIsOutside1800to2200() {
     var greeter = new Greeter();
-    LocalTime morning = LocalTime.of(17, 59);
+    LocalTime evening = LocalTime.of(17, 59);
     String name = "John";
-    assertNotEquals("Good evening John", greeter.greet(name, morning));
+    assertNotEquals("Good evening John", greeter.greet(name, evening));
+  }
+
+  @Test
+  void greetReturnsGoodNightWhenTime2200to0600() {
+    var greeter = new Greeter();
+    LocalTime night = LocalTime.of(22, 0);
+    String name = "John";
+    assertEquals("Good night John", greeter.greet(name, night));
+  }
+  @Test
+  void greetDoesNotReturnGoodMorningWhenTimeIsOutside2200to0600() {
+    var greeter = new Greeter();
+    LocalTime night = LocalTime.of(17, 59);
+    String name = "John";
+    assertNotEquals("Good night John", greeter.greet(name, night));
   }
 }
