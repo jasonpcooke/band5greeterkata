@@ -8,26 +8,26 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GreeterTest {
 
-  private final LocalTime midnight = LocalTime.of(0, 0);
+  private final LocalTime afternoon = LocalTime.of(14, 0);
   @Test
   void greetReturnsHelloAndName() {
     var greeter = new Greeter();
     String name = "John Smith";
-    assertEquals("Hello John Smith", greeter.greet(name, midnight));
+    assertEquals("Hello John Smith", greeter.greet(name, afternoon));
   }
 
   @Test
   void greetTrimsName() {
     var greeter = new Greeter();
     String name = "  John Smith  ";
-    assertEquals("Hello John Smith", greeter.greet(name, midnight));
+    assertEquals("Hello John Smith", greeter.greet(name, afternoon));
   }
 
   @Test
   void greetCapitalisesFirstLetterOfName() {
     var greeter = new Greeter();
     String name = "john";
-    assertEquals("Hello John", greeter.greet(name, midnight));
+    assertEquals("Hello John", greeter.greet(name, afternoon));
   }
 
   @Test

@@ -9,11 +9,14 @@ public class Greeter {
   }
 
   private String getGreeting(LocalTime timeOfDay) {
-    if(timeOfDay.isAfter(LocalTime.of(5,59)) && timeOfDay.isBefore(LocalTime.of(12, 1))){
+    if(timeOfDay.isAfter(LocalTime.of(5,59)) && timeOfDay.isBefore(LocalTime.of(12, 0))){
       return "Good morning";
     }
-    else if (timeOfDay.isAfter(LocalTime.of(17,59)) && timeOfDay.isBefore(LocalTime.of(22,1))){
+    else if (timeOfDay.isAfter(LocalTime.of(17,59)) && timeOfDay.isBefore(LocalTime.of(22,0))){
       return "Good evening";
+    }
+    else if (timeOfDay.isAfter(LocalTime.of(21,59)) || timeOfDay.isBefore(LocalTime.of(6,0))){
+      return "Good night";
     }
     return "Hello";
   }
