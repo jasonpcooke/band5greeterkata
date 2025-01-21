@@ -18,4 +18,11 @@ class GreeterTest {
     String name = "  John Smith  ";
     assertEquals("Hello John Smith", greeter.greet(name));
   }
+
+  @Test
+  void greetCapitalisesFirstLetterOfName() {
+    var greeter = new Greeter();
+    String name = "john";
+    assertEquals("Hello John", greeter.greet(name));
+  }
 }
