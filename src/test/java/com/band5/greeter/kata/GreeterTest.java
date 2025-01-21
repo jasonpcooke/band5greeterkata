@@ -9,7 +9,13 @@ class GreeterTest {
   void greet() {
     var greeter = new Greeter();
     String name = "John Smith";
-    assertEquals("Hello " + name, greeter.greet(name));
+    assertEquals("Hello John Smith", greeter.greet(name));
   }
 
+  @Test
+  void greetTrimsName() {
+    var greeter = new Greeter();
+    String name = "  John Smith  ";
+    assertEquals("Hello John Smith", greeter.greet(name));
+  }
 }
