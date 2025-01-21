@@ -7,32 +7,42 @@ import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GreeterTest {
+
+  private final LocalTime midnight = LocalTime.of(0, 0);
   @Test
   void greetReturnsHelloAndName() {
     var greeter = new Greeter();
     String name = "John Smith";
-    assertEquals("Hello John Smith", greeter.greet(name));
+    assertEquals("Hello John Smith", greeter.greet(name, midnight));
   }
 
   @Test
   void greetTrimsName() {
     var greeter = new Greeter();
     String name = "  John Smith  ";
-    assertEquals("Hello John Smith", greeter.greet(name));
+    assertEquals("Hello John Smith", greeter.greet(name, midnight));
   }
 
   @Test
   void greetCapitalisesFirstLetterOfName() {
     var greeter = new Greeter();
     String name = "john";
-    assertEquals("Hello John", greeter.greet(name));
+    assertEquals("Hello John", greeter.greet(name, midnight));
   }
 
   @Test
-  void greetReturnsGoodMorningWhenTimeBetween0600and1200() {
+  void greetReturnsGoodMorningWhenTime0600to1200() {
     var greeter = new Greeter();
     LocalTime morning = LocalTime.of(6, 0);
     String name = "John";
-    assertEquals("Good Morning John", greeter.greet(name, morning));
+    assertEquals("Good morning John", greeter.greet(name, morning));
+  }
+
+  @Test
+  void greetDoesNotReturnGoodMorningWhenTimeIsOutside0600to1200() {
+    var greeter = new Greeter();
+    LocalTime morning = LocalTime.of(5, 59);
+    String name = "John";
+    assertNotEquals("Good morning John", greeter.greet(name, morning));
   }
 }
