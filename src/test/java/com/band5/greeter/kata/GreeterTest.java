@@ -1,6 +1,5 @@
 package com.band5.greeter.kata;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -93,7 +92,6 @@ class GreeterTest {
   void greetLogsToConsoleWhenCalled() {
     var greeter = new Greeter();
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    PrintStream printStream = System.out;
     System.setOut(new PrintStream(outputStream));
 
     String name = "John";
@@ -101,6 +99,5 @@ class GreeterTest {
 
     assertEquals("Hello John", greeter.greet(name, time));
     assertEquals("Hello John\n", outputStream.toString());
-    System.setOut(printStream);
   }
 }
