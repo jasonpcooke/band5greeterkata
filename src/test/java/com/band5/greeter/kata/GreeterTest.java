@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GreeterTest {
   @Test
-  void greet() {
+  void greetReturnsHelloAndName() {
     var greeter = new Greeter();
     String name = "John Smith";
     assertEquals("Hello John Smith", greeter.greet(name));
@@ -17,5 +17,12 @@ class GreeterTest {
     var greeter = new Greeter();
     String name = "  John Smith  ";
     assertEquals("Hello John Smith", greeter.greet(name));
+  }
+
+  @Test
+  void greetCapitalisesFirstLetterOfName() {
+    var greeter = new Greeter();
+    String name = "john";
+    assertEquals("Hello John", greeter.greet(name));
   }
 }
