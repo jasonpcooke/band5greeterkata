@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GreeterTest {
   @Test
-  void greet() {
+  void greetReturnsHelloAndName() {
     var greeter = new Greeter();
     String name = "John Smith";
     assertEquals("Hello John Smith", greeter.greet(name));
