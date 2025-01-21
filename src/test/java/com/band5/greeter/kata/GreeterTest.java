@@ -45,4 +45,20 @@ class GreeterTest {
     String name = "John";
     assertNotEquals("Good morning John", greeter.greet(name, morning));
   }
+
+  @Test
+  void greetReturnsGoodMorningWhenTime1800to2200() {
+    var greeter = new Greeter();
+    LocalTime morning = LocalTime.of(20, 0);
+    String name = "John";
+    assertEquals("Good evening John", greeter.greet(name, morning));
+  }
+
+  @Test
+  void greetDoesNotReturnGoodMorningWhenTimeIsOutside1800to2200() {
+    var greeter = new Greeter();
+    LocalTime morning = LocalTime.of(17, 59);
+    String name = "John";
+    assertNotEquals("Good evening John", greeter.greet(name, morning));
+  }
 }
