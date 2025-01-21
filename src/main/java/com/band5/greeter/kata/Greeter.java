@@ -5,7 +5,9 @@ import java.time.LocalTime;
 public class Greeter {
   public String greet(String name, LocalTime timeOfDay){
     name = name.trim();
-    return getGreeting(timeOfDay) + " " + name.substring(0,1).toUpperCase() + name.substring(1);
+    String greeting = getGreeting(timeOfDay) + " " + name.substring(0,1).toUpperCase() + name.substring(1);
+    System.out.println(greeting);
+    return greeting ;
   }
 
   private String getGreeting(LocalTime timeOfDay) {
