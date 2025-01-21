@@ -12,6 +12,9 @@ public class Greeter {
     if(timeOfDay.isAfter(LocalTime.of(5,59)) && timeOfDay.isBefore(LocalTime.of(12, 1))){
       return "Good morning";
     }
+    else if (timeOfDay.isAfter(LocalTime.of(17,59)) && timeOfDay.isBefore(LocalTime.of(22,1))){
+      return "Good evening";
+    }
     return "Hello";
   }
 }
